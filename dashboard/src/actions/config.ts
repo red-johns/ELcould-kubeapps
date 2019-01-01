@@ -1,0 +1,21 @@
+import { ThunkAction } from "redux-thunk";
+import { ActionType, createAction } from "typesafe-actions";
+import { IStoreState } from "../shared/types";
+
+import Config, { IConfig } from "../shared/Config";
+
+export const requestConfig = createAction("REQUEST_CONFIG");
+export const receiveConfig = createAction("RECEIVE_CONFIG", resolve => {
+  return (config: IConfig) => resolve(config);
+});
+
+const allActions = [requestConfig, receiveConfig];
+export type ConfigAction = ActionType<typeof allActions[number]>;
+
+export function getConfig(): ThunkAction<Promise<void>, IStoreState, null, ConfigAction> {
+  return async dispatch => {
+    dispatch(requestConfig());
+    const config = await Config.getConfig();
+    dispatch(receiveConfig(config));
+  };
+}

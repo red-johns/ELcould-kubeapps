@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders a header for the chart 1`] = `
+<header>
+  <div
+    className="ChartView__heading margin-normal"
+  >
+    <ChartIcon />
+    <div
+      className="title margin-l-small"
+    >
+      <h1
+        className="margin-t-reset"
+      >
+        testrepo/test
+      </h1>
+      <h5
+        className="subtitle margin-b-normal"
+      >
+        <Link
+          replace={false}
+          to="/catalog/testrepo"
+        >
+          testrepo
+        </Link>
+      </h5>
+      <h5
+        className="subtitle margin-b-reset"
+      >
+        A Test Chart
+      </h5>
+    </div>
+  </div>
+  <hr />
+</header>
+`;
